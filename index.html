@@ -681,7 +681,6 @@
             <div class="text-sm font-medium text-gray-400">자원 심층 분석 리포트 (Resource Intelligence)</div>
         </header>
 
-        <!-- ★ [수정됨] id="report-main-scroll" 추가 완료 -->
         <main id="report-main-scroll" class="flex-1 w-full overflow-y-auto p-10">
             <div id="report-content" class="max-w-4xl mx-auto w-full pb-20">
             </div>
@@ -1148,7 +1147,6 @@
                 if (d.properties.NAME === "Russia") d.properties.CONTINENT = "Asia";
                 else if (centralAmericaList.includes(d.properties.NAME)) d.properties.CONTINENT = "Central America";
                 
-                // ★ [미국 영토 정제] 180도 경도선을 넘는 극동쪽 섬(괌, 알류샨 열도 끝부분 등) 제거
                 if (d.properties.NAME === "United States of America" || d.properties.NAME === "United States") {
                     if (d.geometry.type === "MultiPolygon") {
                         d.geometry.coordinates = d.geometry.coordinates.filter(poly => {
@@ -1266,7 +1264,6 @@
             detailPage.classList.remove('opacity-0');
             detailPage.classList.add('opacity-100');
 
-            // ★ [핵심 추가] 페이지가 열릴 때 스크롤 컨테이너의 위치를 무조건 맨 위(0)로 강제 초기화
             const reportMainScroll = document.getElementById('report-main-scroll');
             if (reportMainScroll) {
                 reportMainScroll.scrollTop = 0;
@@ -1340,7 +1337,6 @@
                 </div>
             `;
 
-            // 콘텐츠 삽입 직후 한 번 더 확실하게 스크롤 최상단 고정
             if (reportMainScroll) {
                 reportMainScroll.scrollTop = 0;
             }
