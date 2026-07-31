@@ -1220,8 +1220,14 @@
         }
 
         async function fetchCountryData(properties) {
-            const infoPanel = document.getElementById('floating-info'); const flagImg = document.getElementById('flag-img'); const nameEl = document.getElementById('country-name'); const resourceContainer = document.getElementById('resource-container');
-            infoPanel.classList.remove('hidden'); nameEl.innerText = properties.NAME; resourceContainer.innerHTML = ''; 
+            const infoPanel = document.getElementById('floating-info'); 
+            const flagImg = document.getElementById('flag-img'); 
+            const nameEl = document.getElementById('country-name'); 
+            const resourceContainer = document.getElementById('resource-container');
+            
+            infoPanel.classList.remove('hidden'); 
+            nameEl.innerText = properties.NAME; 
+            resourceContainer.innerHTML = ''; 
             
             getCountryResources(properties).forEach(res => {
                 const badge = document.createElement('span');
@@ -1235,6 +1241,11 @@
                 }
                 resourceContainer.appendChild(badge);
             });
+
+            const isoCode = properties.ISO_A2; 
+            const isValidIso = isoCode && isoCode !== "-99";
+            flagImg.src = isValidIso ? `https://flagcdn.com/w160/${isoCode.toLowerCase()}.png` : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+        }
 
             const isoCode = properties.ISO_A2; const isValidIso = isoCode && isoCode !== "-99";
             flagImg.src = isValidIso ? `https://flagcdn.com/w160/${isoCode.toLowerCase()}.png` : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
