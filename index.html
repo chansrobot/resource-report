@@ -1111,7 +1111,7 @@
 
         document.addEventListener("DOMContentLoaded", async () => {
             try {
-                const resResponse = await fetch("data/resources.json");
+                const resResponse = await fetch("resources.json");
                 if (resResponse.ok) {
                     masterResourcesData = await resResponse.json();
                     console.log("🔥 [System] 마스터 JSON 로드 성공! 자원 수:", Object.keys(masterResourcesData).length);
