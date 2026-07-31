@@ -1246,8 +1246,6 @@
             const isValidIso = isoCode && isoCode !== "-99";
             flagImg.src = isValidIso ? `https://flagcdn.com/w160/${isoCode.toLowerCase()}.png` : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
         }
-
-            const isoCode = properties.ISO_A2; const isValidIso = isoCode && isoCode !== "-99";
             flagImg.src = isValidIso ? `https://flagcdn.com/w160/${isoCode.toLowerCase()}.png` : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
             try {
                 const searchUrl = isValidIso ? `https://restcountries.com/v3.1/alpha/${isoCode}` : `https://restcountries.com/v3.1/name/${properties.NAME}`;
