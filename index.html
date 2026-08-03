@@ -895,7 +895,7 @@
             "Malaysia": ["석유", "천연가스", "주석"],
             "Philippines": ["니켈", "구리", "금"],
             "Thailand": ["천연가스", "주석", "석고"],
-            "Myanmar": ["천연옥", "천연가스", "티아석"],
+            "Myanmar": ["천연옥", "천연가스", "티타늄"], // 티아석 -> 티타늄 수정
             "Cambodia": ["보석류", "천연가스", "보크사이트"],
             "Laos": ["구리", "금", "수력에너지"],
             "Singapore": ["화강암", "규사", "천연가스"],
@@ -936,15 +936,15 @@
 
             "Ukraine": ["철광석", "망간", "티타늄"],
             "Russia": ["천연가스", "석유", "니켈"],
-            "Germany": ["갈탄", "암염", "건설석재"],
+            "Germany": ["갈탄", "암염", "화강암"], // 건설석재 -> 화강암 수정
             "France": ["철광석", "보크사이트", "석회석"],
             "United Kingdom": ["천연가스", "석유", "석탄"],
             "Italy": ["대리석", "천연가스", "유황"],
             "Spain": ["피라이트", "구리", "은"],
             "Poland": ["구리", "석탄", "암염"],
             "Netherlands": ["천연가스", "석유", "이탄"],
-            "Belgium": ["탄산칼슘", "규사", "건설석재"],
-            "Switzerland": ["수력에너지", "암염", "건설석재"],
+            "Belgium": ["탄산칼슘", "규사", "대리석"], // 건설석재 -> 대리석 수정
+            "Switzerland": ["수력에너지", "암염", "화강암"], // 건설석재 -> 화강암 수정
             "Austria": ["철광석", "마그네사이트", "암염"],
             "Sweden": ["철광석", "구리", "수력에너지"],
             "Norway": ["석유", "천연가스", "수력에너지"],
@@ -958,7 +958,7 @@
             "Romania": ["석유", "천연가스", "철광석"],
             "Bulgaria": ["구리", "아연", "석탄"],
             "Serbia": ["구리", "리튬", "석탄"],
-            "Croatia": ["석유", "보크사이트", "칼슘"],
+            "Croatia": ["석유", "보크사이트", "탄산칼슘"], // 칼슘 -> 탄산칼슘 수정
             "Slovakia": ["갈탄", "철광석", "구리"],
             "Belarus": ["칼륨", "이탄", "석유"],
             "Moldova": ["석회석", "규사", "사암"],
@@ -988,7 +988,7 @@
             "Costa Rica": ["수력에너지", "보석류", "석회석"],
             "Panama": ["구리", "금", "규사"],
             "Jamaica": ["보크사이트", "알루미나", "석회석"],
-            "Trinidad and Tobago": ["천연가스", "석유", "아스팔트"],
+            "Trinidad and Tobago": ["천연가스", "석유", "사암"], // 아스팔트 -> 사암 수정
             "Brazil": ["철광석", "니오븀", "망간"],
             "Argentina": ["리튬", "천연가스", "석유"],
             "Chile": ["구리", "리튬", "몰리브덴"],
@@ -1047,7 +1047,7 @@
             "Burundi": ["니켈", "우라늄", "금"],
             "Equatorial Guinea": ["석유", "천연가스", "보크사이트"],
             "Djibouti": ["암염", "석고", "지열에너지"],
-            "Eswatini": ["석탄", "다석", "석영"],
+            "Eswatini": ["석탄", "대리석", "석영"], // 다석 -> 대리석 수정
             "Lesotho": ["다이아몬드", "수자원", "사암"],
 
             "Australia": ["철광석", "석탄", "리튬"],
@@ -1091,16 +1091,16 @@
                 }
             }
 
+            // 매핑되지 않은 국가들의 기본값도 안전한 이름으로 완벽 매핑
             const continent = properties.CONTINENT || properties.REGION_UN || "";
-            if (continent.includes("Africa")) return ["금", "인광석", "천연에너지"];
-            if (continent.includes("Europe")) return ["석회석", "천연가스", "건설석재"];
-            if (continent.includes("Asia")) return ["천연가스", "희소광물", "석회석"];
+            if (continent.includes("Africa")) return ["금", "인광석", "지열에너지"];
+            if (continent.includes("Europe")) return ["석회석", "천연가스", "화강암"];
+            if (continent.includes("Asia")) return ["천연가스", "희토류", "석회석"];
             if (continent.includes("America")) return ["구리", "석유", "금"];
-            if (continent.includes("Oceania")) return ["보크사이트", "규사", "천연에너지"];
+            if (continent.includes("Oceania")) return ["보크사이트", "규사", "풍력에너지"];
 
-            return ["희소광물", "천연에너지", "규사"];
+            return ["희토류", "풍력에너지", "규사"];
         }
-
         function closeResourcePage() {
             const detailPage = document.getElementById('resource-detail-page');
             detailPage.classList.remove('opacity-100');
