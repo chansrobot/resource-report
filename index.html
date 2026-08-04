@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geopolitical Resource Intelligence - 자원 연구소</title>
+    <!-- Core External Dependencies: Tailwind CSS for Utility-First Styling & D3.v7 for Geo-Projection Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
-        /* [중요] 한국어 단어 중간 끊김 방지 */
+        /* ==========================================================================
+           [Typography & Layout Constraints]
+           Prevent unexpected mid-word line breaks in Korean locale and handle overflow.
+           ========================================================================== */
         * {
             word-break: keep-all;
             overflow-wrap: break-word;
@@ -21,9 +25,9 @@
             word-break: keep-all;
         }
 
-        /* ===========================================
-            0. 최초 접속 검은 배경 로딩 페이지 CSS
-           =========================================== */
+        /* ==========================================================================
+           0. Initial Quantum Bootloader Overlay (DOM Suspension Layer)
+           ========================================================================== */
         #initial-loader {
             position: fixed;
             inset: 0;
@@ -60,7 +64,7 @@
         .char-init:nth-child(4) { animation-delay: 0.8s; }
         .char-init:nth-child(5) { animation-delay: 1.0s; }
 
-        /* SF 하이테크 퀀텀 원자 궤도 애니메이션 */
+        /* High-Tech Quantum Atomic Orbital Vector Matrix */
         .atomic-svg-container {
             width: 240px;
             height: 240px;
@@ -117,7 +121,7 @@
         }
 
         /* ===========================================
-            1. 홍보 페이지 스크롤 등장 이펙트 CSS
+           1. Apple Keynote-Style Landing Scroll Engine
            =========================================== */
         .reveal-on-scroll {
             opacity: 0;
@@ -156,7 +160,7 @@
             50% { transform: translate(-50px, 50px) scale(0.9); }
         }
 
-        /* 세련되게 색상만 흐르는 무지개 배지 애니메이션 */
+        /* Dynamic Chromatic Shift Matrix for Institutional Badges */
         @keyframes rainbowShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -195,7 +199,7 @@
             border-color: rgba(96, 165, 250, 0.6);
         }
 
-        /* 미니멀 스크롤 화살표 */
+        /* Minimalist Scroll Guidance Indication Component */
         #scroll-down-indicator {
             position: fixed;
             bottom: 24px;
@@ -221,7 +225,7 @@
             50% { transform: translateX(-50%) translateY(12px); }
         }
 
-        /* 스크롤 시 하단에 뜨는 고정 플로팅 탐색 버튼 */
+        /* Fixed Floating Action Trigger (CTA) Subsystem */
         #floating-cta-btn {
             position: fixed;
             bottom: 30px;
@@ -239,7 +243,7 @@
         }
 
         /* ===========================================
-            2. 세계지도로 넘어갈 때 흰 배경 지구본 인트로 CSS
+           2. Orthographic Globe Projection Transition View
            =========================================== */
         #intro-screen {
             position: fixed;
@@ -278,7 +282,7 @@
         .intro-exit { opacity: 0 !important; transform: scale(1.3) !important; pointer-events: none; }
 
         /* ===========================================
-            3. 지도 및 스크롤바 CSS
+           3. Geo-Mapping and Custom Scrollbar Subsystem
            =========================================== */
         #map-container { width: 100vw; height: 100vh; position: relative; }
         .country { fill: #f3f4f6; stroke: #d1d5db; stroke-width: 0.5px; transition: fill 0.3s ease, filter 0.3s ease, opacity 0.5s ease; cursor: pointer; opacity: 1; }
@@ -297,9 +301,9 @@
 </head>
 <body class="break-keep">
 
-    <!-- ================================================================= -->
-    <!-- 1. 최초 접속 시 나타나는 검은 배경 '자원연구소' 인트로 로딩 -->
-    <!-- ================================================================= -->
+    <!-- ========================================================================== -->
+    <!-- [DOM Initialization Sequence] Initial Pre-loader Mask Container             -->
+    <!-- ========================================================================== -->
     <div id="initial-loader">
         <div class="init-text-container">
             <span class="char-init">자</span>
@@ -309,7 +313,7 @@
             <span class="char-init">소</span>
         </div>
         
-        <!-- SF 하이테크 퀀텀 원자 궤도 & 전자 회전 시스템 -->
+        <!-- High-Performance Vector Graphics Engine for Quantum Orbital Simulation -->
         <svg id="resource-crystal-svg" class="atomic-svg-container" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <radialGradient id="nucleusGrad" cx="50%" cy="50%" r="50%">
@@ -329,13 +333,13 @@
                 </filter>
             </defs>
 
-            <!-- 바깥쪽 SF HUD 눈금 레이더 링 -->
+            <!-- HUD Radar Calibration Ring System -->
             <g class="hud-outer-ring">
                 <circle cx="120" cy="120" r="108" stroke="#3b82f6" stroke-width="1" stroke-dasharray="8 6 2 6" opacity="0.3" />
                 <circle cx="120" cy="120" r="95" stroke="#10b981" stroke-width="1.2" stroke-dasharray="20 40 10 30" opacity="0.4" />
             </g>
 
-            <!-- 첫 번째 궤도 -->
+            <!-- Primary Orbital Vector -->
             <g class="orbit-ring-1">
                 <ellipse cx="120" cy="120" rx="90" ry="32" stroke="#34d399" stroke-width="2" stroke-dasharray="30 15 8 15" opacity="0.8" />
                 <circle cx="30" cy="120" r="5.5" fill="#34d399" filter="url(#neon-glow)" />
@@ -344,21 +348,21 @@
                 <circle cx="210" cy="120" r="2" fill="#ffffff" />
             </g>
 
-            <!-- 두 번째 궤도 -->
+            <!-- Secondary Intersecting Orbital Vector -->
             <g class="orbit-ring-2">
                 <ellipse cx="120" cy="120" rx="90" ry="32" stroke="#38bdf8" stroke-width="2.2" stroke-dasharray="45 20" opacity="0.85" />
                 <circle cx="120" cy="88" r="6" fill="#38bdf8" filter="url(#neon-glow)" />
                 <circle cx="120" cy="88" r="2.8" fill="#ffffff" />
             </g>
 
-            <!-- 세 번째 궤도 -->
+            <!-- Tertiary High-Energy Orbital Vector -->
             <g class="orbit-ring-3">
                 <ellipse cx="120" cy="120" rx="90" ry="32" stroke="#a855f7" stroke-width="2.5" opacity="0.8" />
                 <circle cx="205" cy="110" r="6.5" fill="#c084fc" filter="url(#neon-glow)" />
                 <circle cx="205" cy="110" r="3" fill="#ffffff" />
             </g>
 
-            <!-- 정중앙 퀀텀 에너지 원자핵 -->
+            <!-- Central Quantum Core Nucleus -->
             <g class="atom-nucleus">
                 <circle cx="120" cy="120" r="28" fill="url(#nucleusGrad)" filter="url(#neon-glow)" />
                 <circle cx="120" cy="120" r="11" fill="#ffffff" filter="url(#neon-glow)" />
@@ -367,44 +371,44 @@
         </svg>
     </div>
 
-    <!-- ================================================================= -->
-    <!-- [애플 키노트 스타일 홍보 페이지] -->
-    <!-- ================================================================= -->
+    <!-- ========================================================================== -->
+    <!-- [Application Layer 1] Apple Keynote-Inspired Immersive Landing Page          -->
+    <!-- ========================================================================== -->
     <div id="apple-landing" class="fixed inset-0 z-[300] bg-slate-950 text-slate-100 overflow-y-auto transition-all duration-700 break-keep">
       
-      <!-- 🌟 초고휘도 반짝반짝 파티클 배경 캔버스 (투명도 및 발광 극대화) -->
+      <!-- Interactive Particle Canvas Rendering Context -->
       <canvas id="atom-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-95"></canvas>
 
-      <!-- 마우스 추적 네온 오로라 조명 -->
+      <!-- Mouse-Tracking Ambient Aurora Lighting Shader Element -->
       <div id="cursor-glow" class="pointer-events-none fixed -top-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-blue-500/30 via-indigo-500/25 to-purple-500/20 rounded-full blur-[120px] z-0 transition-transform duration-300 ease-out"></div>
 
-      <!-- 스크롤 시 화면 하단 중앙에 뜨는 고정 플로팅 자원 탐색 CTA 알약 버튼 -->
+      <!-- Scroll-Triggered Floating Call-to-Action (CTA) Controller -->
       <button id="floating-cta-btn" onclick="enterResourcePlatform()" class="group px-7 py-3.5 rounded-full bg-blue-600/90 hover:bg-blue-500 text-white font-bold text-sm tracking-wide transition-all duration-300 shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:-translate-y-1 flex items-center gap-3 border border-blue-400/40 backdrop-blur-xl cursor-pointer">
           <span>세계 지도에서 국가별 자원 탐색하기</span>
           <span class="text-base group-hover:translate-x-1 transition-transform">→</span>
       </button>
 
-      <!-- 미니멀 스크롤 화살표 -->
+      <!-- Minimalist Downward Scroll Indicator -->
       <button id="scroll-down-indicator" onclick="scrollToTrends()" class="flex items-center justify-center p-3 text-slate-400 hover:text-white transition-colors">
           <svg class="w-20 h-20 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M6 9l6 6 6-6" />
           </svg>
       </button>
 
-      <!-- NAVBAR -->
+      <!-- Global Navigation Bar Component -->
       <nav class='sticky top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60 px-10 py-5 flex justify-between items-center max-w-7xl mx-auto'>
         <div class='flex items-center gap-3'>
           <span class='w-3 h-3 rounded-full bg-blue-500 animate-pulse shadow-lg shadow-blue-500/50'></span>
           <span class='text-sm font-bold tracking-widest text-white uppercase'>GEOPOLITICAL RESOURCE INTELLIGENCE</span>
         </div>
         
-        <!-- 우측 상단: 무지개 배지 -->
+        <!-- Institutional Identification Badge Component -->
         <div class='rainbow-badge text-xs px-4 py-1.5 rounded-full cursor-default select-none shadow-2xl'>
           HUFSTUDY TEAM 자원연구소
         </div>
       </nav>
 
-      <!-- HERO SECTION -->
+      <!-- Hero Section Component: Executive Value Proposition -->
       <section class='relative pt-24 pb-20 md:pt-36 md:pb-28 px-6 max-w-5xl mx-auto text-center z-10'>
         <div class='absolute left-1/2 -top-10 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none orb-float-1'></div>
         <div class='absolute left-1/3 top-32 w-80 h-80 bg-purple-600/15 rounded-full blur-[120px] pointer-events-none orb-float-2'></div>
@@ -425,7 +429,7 @@
           생성형 AI 데이터센터의 전력 폭증과 글로벌 전동화 붐. 과거 잊혀졌던 희토류와 리튬 같은 미세 자원들이 이제 세계 경제의 절대적 병목이자 국가 안보를 결정짓는 핵심 화폐로 떠올랐습니다.
         </p>
 
-        <!-- CTA 버튼 -->
+        <!-- Primary Action Trigger -->
         <div class='animate-fade-4 flex justify-center items-center'>
           <button onclick="enterResourcePlatform()" class='group relative px-10 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-base tracking-wide transition-all duration-300 shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-1 flex items-center justify-center gap-3 cursor-pointer overflow-hidden border border-blue-400/30'>
             <span class="relative z-10">세계 지도에서 국가별 자원 탐색하기</span> 
@@ -434,7 +438,7 @@
         </div>
       </section>
 
-      <!-- SECTION 1: 최근 산업 동향 -->
+      <!-- Section 1: Structural Macro-Trends and Hardware Bottlenecks -->
       <section id="trends-section" class='py-24 px-6 border-t border-slate-900/80 bg-slate-950/60 relative z-10'>
         <div class='max-w-6xl mx-auto'>
           <div class='text-center max-w-3xl mx-auto mb-16 reveal-on-scroll'>
@@ -475,7 +479,7 @@
         </div>
       </section>
 
-      <!-- SECTION 2: 자원 문해력 -->
+      <!-- Section 2: Educational Value Alignment across Academic Disciplines -->
       <section class='py-24 px-6 border-t border-slate-900/80 bg-gradient-to-b from-slate-950 to-slate-900/40 relative z-10'>
         <div class='max-w-6xl mx-auto'>
           <div class='grid grid-cols-1 md:grid-cols-12 gap-12 items-center'>
@@ -527,7 +531,7 @@
         </div>
       </section>
 
-      <!-- SECTION 3: 8대 심층 리서치 프레임워크 -->
+      <!-- Section 3: Comprehensive 8-Chapter Research Methodology Framework -->
       <section class='py-24 px-6 border-t border-slate-900/80 bg-slate-950/60 relative z-10'>
         <div class='max-w-5xl mx-auto text-center'>
           <div class='reveal-on-scroll'>
@@ -565,7 +569,7 @@
         </div>
       </section>
 
-      <!-- CTA SECTION -->
+      <!-- Conversion Gateway Call-to-Action Component -->
       <section class='py-24 px-6 border-t border-slate-900/80 text-center relative z-10'>
         <div class='absolute inset-0 bg-blue-600/10 blur-3xl pointer-events-none'></div>
         <div class='max-w-3xl mx-auto relative z-10 reveal-on-scroll'>
@@ -590,7 +594,7 @@
         </div>
       </section>
 
-      <!-- FOOTER -->
+      <!-- Institutional Footer Subsystem -->
       <footer class='py-16 px-10 border-t border-slate-800/80 bg-slate-950 text-slate-400 text-xs relative z-10'>
         <div class='max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8'>
           
@@ -611,7 +615,7 @@
           </div>
 
           <div class="flex flex-col items-center md:items-end gap-4">
-            <!-- 이용약관 버튼 -->
+            <!-- Modal Trigger: Terms of Service & Legal Disclaimer Interface -->
             <div>
               <button onclick="document.getElementById('termsModal').classList.remove('hidden')" class="bg-slate-900 hover:bg-slate-800 text-slate-300 px-4 py-2 rounded-xl border border-slate-800 transition cursor-pointer text-xs font-bold shadow-sm">
                 이용약관 및 법적고지
@@ -633,7 +637,9 @@
 
     </div>
 
-    <!-- 인트로 화면 -->
+    <!-- ========================================================================== -->
+    <!-- [Application Layer 2] Orthographic Globe Intro Transition Screen Container -->
+    <!-- ========================================================================== -->
     <div id="intro-screen" class="hidden">
         <div class="intro-text-container">
             <span class="char-map">자</span>
@@ -659,14 +665,15 @@
         </svg>
     </div>
 
-    <!-- 지도 영역 -->
+    <!-- Interactive D3.js Geospatial Map Injection Vector Container -->
     <div id="map-container" class="absolute inset-0 z-0"></div>
 
+    <!-- Navigation Controller: State Rollback Button -->
     <button id="back-btn" onclick="goBack()" class="hidden absolute top-8 left-8 bg-white/90 backdrop-blur-md hover:bg-gray-50 text-gray-700 font-semibold py-3 px-5 rounded-2xl shadow-lg border border-gray-200 z-20 transition-all duration-300">
         뒤로 가기 ↩
     </button>
 
-    <!-- 자원 데이터 태그 정보 카드 -->
+    <!-- Dynamic Metadata Inspection HUD Overlay Card -->
     <div id="floating-info" class="hidden absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-md px-7 py-5 rounded-3xl shadow-2xl border border-gray-200 flex items-center gap-6 z-20 pointer-events-auto transition-all duration-300">
         <img id="flag-img" src="" alt="국기" class="w-24 h-16 object-contain p-1 rounded-xl shadow-sm border border-gray-100 bg-white pointer-events-none">
         <div class="flex flex-col gap-1.5">
@@ -675,7 +682,9 @@
         </div>
     </div>
 
-    <!-- 전체 자원 도감 버튼 & 슬라이드 패널 -->
+    <!-- ========================================================================== -->
+    <!-- [Application Layer 3] Master Resource Compendium Slide-Over Index Panel     -->
+    <!-- ========================================================================== -->
     <button id="resource-list-btn" onclick="toggleResourceList()" class="hidden absolute top-8 right-8 bg-white/90 backdrop-blur-md hover:bg-gray-50 text-gray-800 font-black py-3 px-5 rounded-2xl shadow-lg border border-gray-200 z-20 transition-all duration-300 flex items-center gap-2">
         <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
         전체 자원 도감
@@ -698,7 +707,9 @@
         </div>
     </div>
 
-    <!-- 자원 상세 분석 리포트 전체 화면 -->
+    <!-- ========================================================================== -->
+    <!-- [Application Layer 4] Full-Screen Deep Research Report Viewport             -->
+    <!-- ========================================================================== -->
     <div id="resource-detail-page" class="fixed inset-0 bg-[#f8fafc] z-[200] hidden opacity-0 transition-opacity duration-500 flex flex-col">
         <header class="w-full h-24 bg-white border-b border-gray-200 flex items-center justify-between px-10 shrink-0 shadow-sm">
             <div class="flex items-center gap-6">
@@ -716,7 +727,9 @@
         </main>
     </div>
 
-    <!-- 이용약관 및 법적 고지 모달 팝업 -->
+    <!-- ========================================================================== -->
+    <!-- [Modal System] Enterprise-Grade Terms of Service & Legal Compliance Modal  -->
+    <!-- ========================================================================== -->
     <div id="termsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[500] p-4 backdrop-blur-sm">
       <div class="bg-slate-900 text-slate-200 p-6 rounded-2xl max-w-2xl w-full border border-slate-700 space-y-4 shadow-2xl">
         <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -755,8 +768,14 @@
       </div>
     </div>
 
+    <!-- ========================================================================== -->
+    <!-- [Core Application Script Architecture Execution Context]                   -->
+    <!-- ========================================================================== -->
     <script>
-        // 최초 접속 로더
+        /**
+         * System Bootstrap Controller: Manages DOMContentLoaded lifecycle events,
+         * pre-loader mask cleanup, and performance transition timers.
+         */
         document.addEventListener("DOMContentLoaded", () => {
             const initialLoader = document.getElementById('initial-loader');
             const atomicSvg = document.getElementById('resource-crystal-svg');
@@ -774,6 +793,7 @@
             }, 4200);
         });
 
+        // Landing Page Scroll State Controller & Intersection Logic
         const landingEl = document.getElementById('apple-landing');
         const scrollBtn = document.getElementById('scroll-down-indicator');
         const floatingCtaBtn = document.getElementById('floating-cta-btn');
@@ -801,6 +821,9 @@
             }
         }
 
+        /**
+         * Intersection Observer Registry for Asynchronous Scroll Reveal Animations
+         */
         document.addEventListener("DOMContentLoaded", () => {
             const observerOptions = { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.15 };
             const scrollObserver = new IntersectionObserver((entries, obs) => {
@@ -814,6 +837,7 @@
             document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.observe(el));
         });
 
+        // Viewport Mouse Coordinates Tracking Subsystem for Ambient Glow Shader
         const cursorGlow = document.getElementById('cursor-glow');
         window.addEventListener('mousemove', (e) => {
             if (cursorGlow && document.getElementById('apple-landing')) {
@@ -823,7 +847,10 @@
             }
         });
 
-        // 🌟 [최종 업그레이드] 더 화려하고 눈부신 네온 반짝임(Twinkle) 파티클 엔진
+        /**
+         * High-Performance Canvas Particle Engine: Renders interactive, 
+         * responsive stellar node network with real-time vector velocity calculations.
+         */
         (function initAtomCanvas() {
             const canvas = document.getElementById('atom-canvas');
             if (!canvas) return;
@@ -837,7 +864,7 @@
             });
 
             const particles = [];
-            const particleCount = Math.min(130, Math.floor((w * h) / 10000)); // 파티클 밀도 대폭 상향
+            const particleCount = Math.min(130, Math.floor((w * h) / 10000));
 
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
@@ -845,10 +872,10 @@
                     y: Math.random() * h,
                     vx: (Math.random() - 0.5) * 1.3,
                     vy: (Math.random() - 0.5) * 1.3,
-                    radius: Math.random() * 3.2 + 1.0, // 입자 크기 다양화
+                    radius: Math.random() * 3.2 + 1.0,
                     alpha: Math.random(),
-                    alphaSpeed: Math.random() * 0.04 + 0.015, // 반짝이는 속도 증가
-                    color: i % 3 === 0 ? '96, 165, 250' : (i % 3 === 1 ? '168, 85, 247' : '52, 211, 153') // 블루, 퍼플, 에메랄드 조합
+                    alphaSpeed: Math.random() * 0.04 + 0.015,
+                    color: i % 3 === 0 ? '96, 165, 250' : (i % 3 === 1 ? '168, 85, 247' : '52, 211, 153')
                 });
             }
 
@@ -861,7 +888,7 @@
                     p.x += p.vx;
                     p.y += p.vy;
 
-                    // 번쩍번쩍 빛나는 트윙클 효과
+                    // Twinkle Alpha Modulation Loop
                     p.alpha += p.alphaSpeed;
                     if (p.alpha > 1 || p.alpha < 0.15) {
                         p.alphaSpeed *= -1;
@@ -870,16 +897,16 @@
                     if (p.x < 0 || p.x > w) p.vx *= -1;
                     if (p.y < 0 || p.y > h) p.vy *= -1;
 
-                    // 파티클 본체 및 강렬한 네온 광채(Glow)
+                    // Render Glowing Node Particle
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(${p.color}, ${p.alpha})`;
                     ctx.shadowColor = `rgba(${p.color}, 1)`;
-                    ctx.shadowBlur = 18; // 빛 번짐 강화
+                    ctx.shadowBlur = 18;
                     ctx.fill();
                     ctx.shadowBlur = 0;
 
-                    // 연결선으로 네온 웹(Web) 효과 극대화
+                    // Render Dynamic Web Link Vectors
                     for (let j = i + 1; j < particles.length; j++) {
                         const p2 = particles[j];
                         const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
@@ -898,6 +925,9 @@
             animateParticles();
         })();
 
+        /**
+         * Cinematic Viewport Transition Controller: Triggers Orthographic Globe Sequence.
+         */
         function enterResourcePlatform() {
             const landing = document.getElementById('apple-landing');
             const introScreen = document.getElementById('intro-screen');
@@ -923,8 +953,12 @@
             }, 600);
         }
 
+        // Global State Repository for Master Resource Intelligence Data Store
         let masterResourcesData = null;
 
+        /**
+         * Static Geopolitical Natural Resource Mapping Registry (Top-3 Mineral Index)
+         */
         const resourceDB = {
             "South Korea": ["석회석", "규사", "텅스텐"],
             "North Korea": ["무연탄", "마그네사이트", "철광석"],
@@ -1087,7 +1121,7 @@
             "Eswatini": ["석탄", "대리석", "석영"],
             "Lesotho": ["다이아몬드", "수자원", "사암"],
             "Australia": ["철광석", "석탄", "리튬"],
-            "New Zealand": ["수력에너지", "천연가스", "지열에너지"],
+            "New Zealand": ["수력에너지", "천연가с", "지열에너지"],
             "Papua New Guinea": ["금", "구리", "천연가스"],
             "Fiji": ["금", "구리", "석회석"],
             "Solomon Islands": ["보크사이트", "인광석", "금"],
@@ -1114,6 +1148,7 @@
             return ["희토류", "풍력에너지", "규사"];
         }
 
+        // Master Compendium Panel Controller Subsystem
         function toggleResourceList() {
             const panel = document.getElementById('resource-list-panel');
             if (panel.classList.contains('translate-x-full')) {
@@ -1149,6 +1184,9 @@
             setTimeout(() => { detailPage.classList.add('hidden'); }, 500);
         }
 
+        /**
+         * Asynchronous Master JSON Dataset Loader Engine
+         */
         document.addEventListener("DOMContentLoaded", async () => {
             try {
                 const resResponse = await fetch("resources.json");
@@ -1160,6 +1198,7 @@
             }
         });
 
+        // D3.js Geospatial Mapping Projection Matrix Configuration
         const width = window.innerWidth;
         const height = window.innerHeight;
         const svg = d3.select("#map-container").append("svg").attr("width", width).attr("height", height).attr("viewBox", `0 0 ${width} ${height}`);
@@ -1180,6 +1219,9 @@
             "Oceania": { center: [140, -25], scale: 3.0 }
         };
 
+        /**
+         * Natural Earth Topographic Topology Vector Binding & GeoJSON Pipeline
+         */
         d3.json("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson").then(data => {
             data.features.forEach(d => {
                 if (d.properties.NAME === "Russia") d.properties.CONTINENT = "Asia";
@@ -1213,11 +1255,13 @@
                 });
         });
 
+        // Hierarchical Navigation State Rollback Router
         function goBack() {
             if (currentCountry) { currentCountry = null; document.getElementById('floating-info').classList.add('hidden'); zoomToContinent(currentContinent); } 
             else if (currentContinent) { currentContinent = null; resetMap(); }
         }
 
+        // Smooth Affine Transformation Viewport Zoom Matrix (Continent Level)
         function zoomToContinent(continentName) {
             const config = continentConfig[continentName]; if (!config) return;
             d3.selectAll(".country").classed("fade-out", d => d.properties.CONTINENT !== continentName);
@@ -1228,6 +1272,7 @@
             const backBtn = document.getElementById('back-btn'); backBtn.classList.remove('hidden'); backBtn.innerText = "세계 지도로 ↩";
         }
 
+        // Bounding-Box Centroid Calculation & Matrix Scaling (Country Level)
         function zoomToCountry(feature) {
             d3.selectAll(".country").classed("selected-country", false).classed("fade-out", d => d.properties.NAME !== feature.properties.NAME);
             g.selectAll("path").filter(d => d.properties.NAME === feature.properties.NAME).classed("selected-country", true);
@@ -1273,6 +1318,9 @@
             document.getElementById('back-btn').classList.add('hidden'); document.getElementById('floating-info').classList.add('hidden');
         }
 
+        /**
+         * Dynamic Deep-Dive Research Viewport Injector
+         */
         function openResourceReport(resourceName) {
             const cleanName = resourceName.replace(/#/g, '').trim();
             const detailPage = document.getElementById('resource-detail-page');
