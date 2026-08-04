@@ -549,7 +549,7 @@
             <div class='p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md reveal-on-scroll delay-200'>
               <span class='text-purple-400 text-xs font-bold'>CH.03 & 04</span>
               <h4 class='text-base font-bold text-white mt-1.5 mb-2.5 break-keep'>채굴/제련 & 글로벌 공급망</h4>
-              <p class='text-xs md:text-sm text-slate-300 leading-relaxed font-light break-keep'>원광 채굴부터 제련과 고순도 가공을 거쳐 완성품에 이르는 밸류체인 해부.</p>
+              <p class='text-xs md:text-sm text-slate-300 leading-relaxed font-light break-keep'>원광 채굴부터 제련과 고순도 가공을 거쳐 완성품에 이르는 밸류체 해부.</p>
             </div>
             <div class='p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md reveal-on-scroll delay-300'>
               <span class='text-emerald-400 text-xs font-bold'>CH.05 & 06</span>
@@ -668,12 +668,43 @@
         </div>
     </div>
 
+    <!-- ================================================================= -->
+    <!-- 🌟 새 기능: 전체 자원 도감 버튼 & 슬라이드 패널 -->
+    <!-- ================================================================= -->
+    <!-- 자원 목록 열기 버튼 (우측 상단) -->
+    <button id="resource-list-btn" onclick="toggleResourceList()" class="hidden absolute top-8 right-8 bg-white/90 backdrop-blur-md hover:bg-gray-50 text-gray-800 font-black py-3 px-5 rounded-2xl shadow-lg border border-gray-200 z-20 transition-all duration-300 flex items-center gap-2">
+        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+        전체 자원 도감
+    </button>
+
+    <!-- 자원 목록 패널 (우측 슬라이드) -->
+    <div id="resource-list-panel" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white/95 backdrop-blur-xl shadow-2xl border-l border-gray-200 z-[150] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
+        <!-- 패널 헤더 -->
+        <div class="p-6 border-b border-gray-200 flex justify-between items-center bg-white/80">
+            <h2 class="text-xl font-black text-gray-900 flex items-center gap-2">
+                <span class="text-2xl">📚</span> 자원 인텔리전스 도감
+            </h2>
+            <button onclick="toggleResourceList()" class="text-gray-500 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <!-- 패널 내용 (자원 배지들이 들어갈 곳) -->
+        <div class="p-6 overflow-y-auto flex-1 custom-scrollbar">
+            <p class="text-xs text-gray-500 mb-5 font-semibold bg-gray-50 p-3 rounded-lg border border-gray-100">
+                💡 아래 자원을 클릭하면 심층 분석 리포트가 열립니다. (가나다순 정렬)
+            </p>
+            <div id="all-resources-container" class="flex flex-wrap gap-2.5">
+                <!-- 자바스크립트로 배지 자동 생성 -->
+            </div>
+        </div>
+    </div>
+
     <!-- 자원 상세 분석 리포트 전체 화면 -->
     <div id="resource-detail-page" class="fixed inset-0 bg-[#f8fafc] z-[200] hidden opacity-0 transition-opacity duration-500 flex flex-col">
         <header class="w-full h-24 bg-white border-b border-gray-200 flex items-center justify-between px-10 shrink-0 shadow-sm">
             <div class="flex items-center gap-6">
                 <button onclick="closeResourcePage()" class="text-gray-500 hover:text-black font-semibold text-lg transition-colors flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-xl">
-                    <span class="text-xl">←</span> 지도 복귀
+                    <span class="text-xl">←</span> 닫기
                 </button>
                 <div class="h-8 w-px bg-gray-300"></div>
                 <h1 id="resource-detail-title" class="text-3xl font-black text-gray-900 tracking-tight">자원명</h1>
@@ -867,6 +898,11 @@
 
                 setTimeout(() => {
                     introScreen.classList.add('intro-exit');
+                    
+                    // 🌟 도감 버튼 나타나기 추가
+                    const resourceBtn = document.getElementById('resource-list-btn');
+                    if(resourceBtn) resourceBtn.classList.remove('hidden');
+
                     setTimeout(() => {
                         introScreen.remove();
                     }, 800);
@@ -881,7 +917,7 @@
         let masterResourcesData = null;
 
         // ============================================================================
-        // 1. 글로벌 천연 광물/에너지 Top 3 데이터베이스
+        // 1. 글로벌 천연 광물/에너지 Top 3 데이터베이스 (오타 및 매핑 완벽 수정본)
         // ============================================================================
         const resourceDB = {
             "South Korea": ["석회석", "규사", "텅스텐"],
@@ -895,7 +931,7 @@
             "Malaysia": ["석유", "천연가스", "주석"],
             "Philippines": ["니켈", "구리", "금"],
             "Thailand": ["천연가스", "주석", "석고"],
-            "Myanmar": ["천연옥", "천연가스", "티타늄"], // 티아석 -> 티타늄 수정
+            "Myanmar": ["천연옥", "천연가스", "티타늄"],
             "Cambodia": ["보석류", "천연가스", "보크사이트"],
             "Laos": ["구리", "금", "수력에너지"],
             "Singapore": ["화강암", "규사", "천연가스"],
@@ -936,15 +972,15 @@
 
             "Ukraine": ["철광석", "망간", "티타늄"],
             "Russia": ["천연가스", "석유", "니켈"],
-            "Germany": ["갈탄", "암염", "화강암"], // 건설석재 -> 화강암 수정
+            "Germany": ["갈탄", "암염", "화강암"],
             "France": ["철광석", "보크사이트", "석회석"],
             "United Kingdom": ["천연가스", "석유", "석탄"],
             "Italy": ["대리석", "천연가스", "유황"],
             "Spain": ["피라이트", "구리", "은"],
             "Poland": ["구리", "석탄", "암염"],
             "Netherlands": ["천연가스", "석유", "이탄"],
-            "Belgium": ["탄산칼슘", "규사", "대리석"], // 건설석재 -> 대리석 수정
-            "Switzerland": ["수력에너지", "암염", "화강암"], // 건설석재 -> 화강암 수정
+            "Belgium": ["탄산칼슘", "규사", "대리석"],
+            "Switzerland": ["수력에너지", "암염", "화강암"],
             "Austria": ["철광석", "마그네사이트", "암염"],
             "Sweden": ["철광석", "구리", "수력에너지"],
             "Norway": ["석유", "천연가스", "수력에너지"],
@@ -958,7 +994,7 @@
             "Romania": ["석유", "천연가스", "철광석"],
             "Bulgaria": ["구리", "아연", "석탄"],
             "Serbia": ["구리", "리튬", "석탄"],
-            "Croatia": ["석유", "보크사이트", "탄산칼슘"], // 칼슘 -> 탄산칼슘 수정
+            "Croatia": ["석유", "보크사이트", "탄산칼슘"],
             "Slovakia": ["갈탄", "철광석", "구리"],
             "Belarus": ["칼륨", "이탄", "석유"],
             "Moldova": ["석회석", "규사", "사암"],
@@ -988,7 +1024,7 @@
             "Costa Rica": ["수력에너지", "보석류", "석회석"],
             "Panama": ["구리", "금", "규사"],
             "Jamaica": ["보크사이트", "알루미나", "석회석"],
-            "Trinidad and Tobago": ["천연가스", "석유", "사암"], // 아스팔트 -> 사암 수정
+            "Trinidad and Tobago": ["천연가스", "석유", "사암"],
             "Brazil": ["철광석", "니오븀", "망간"],
             "Argentina": ["리튬", "천연가스", "석유"],
             "Chile": ["구리", "리튬", "몰리브덴"],
@@ -1047,7 +1083,7 @@
             "Burundi": ["니켈", "우라늄", "금"],
             "Equatorial Guinea": ["석유", "천연가스", "보크사이트"],
             "Djibouti": ["암염", "석고", "지열에너지"],
-            "Eswatini": ["석탄", "대리석", "석영"], // 다석 -> 대리석 수정
+            "Eswatini": ["석탄", "대리석", "석영"],
             "Lesotho": ["다이아몬드", "수자원", "사암"],
 
             "Australia": ["철광석", "석탄", "리튬"],
@@ -1091,7 +1127,7 @@
                 }
             }
 
-            // 매핑되지 않은 국가들의 기본값도 안전한 이름으로 완벽 매핑
+            // 매핑되지 않은 국가들의 기본값 처리
             const continent = properties.CONTINENT || properties.REGION_UN || "";
             if (continent.includes("Africa")) return ["금", "인광석", "지열에너지"];
             if (continent.includes("Europe")) return ["석회석", "천연가스", "화강암"];
@@ -1101,6 +1137,51 @@
 
             return ["희토류", "풍력에너지", "규사"];
         }
+
+        // ============================================================================
+        // 🌟 전체 자원 도감 패널 제어 함수 (새로운 기능!)
+        // ============================================================================
+        function toggleResourceList() {
+            const panel = document.getElementById('resource-list-panel');
+            
+            if (panel.classList.contains('translate-x-full')) {
+                panel.classList.remove('translate-x-full');
+                populateResourceList(); // 열릴 때 리스트 생성
+            } else {
+                panel.classList.add('translate-x-full');
+            }
+        }
+
+        function populateResourceList() {
+            const container = document.getElementById('all-resources-container');
+            
+            // 이미 만들었으면 다시 안 만듦
+            if (container.children.length > 0) return; 
+
+            if (!masterResourcesData) {
+                container.innerHTML = '<span class="text-sm text-red-500 font-bold">데이터를 아직 불러오지 못했습니다. 잠시 후 다시 열어주세요.</span>';
+                return;
+            }
+
+            // JSON의 키(자원 이름)를 가져와서 가나다순 정렬
+            const resourceNames = Object.keys(masterResourcesData).sort((a, b) => a.localeCompare(b, 'ko'));
+            
+            container.innerHTML = ''; // 초기화
+            
+            resourceNames.forEach(res => {
+                const badge = document.createElement('button');
+                badge.className = "cursor-pointer text-left hover:-translate-y-1 hover:shadow-md hover:bg-blue-600 hover:text-white transition-all bg-blue-50 text-blue-800 text-sm font-bold px-3.5 py-2 rounded-xl border border-blue-200/80 shadow-sm flex-grow sm:flex-grow-0";
+                badge.innerText = res;
+                
+                // 클릭하면 보고서 여는 함수 실행
+                badge.onclick = () => {
+                    openResourceReport(res);
+                };
+                
+                container.appendChild(badge);
+            });
+        }
+
         function closeResourcePage() {
             const detailPage = document.getElementById('resource-detail-page');
             detailPage.classList.remove('opacity-100');
